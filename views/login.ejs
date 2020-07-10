@@ -1,0 +1,24 @@
+<h3><i class="fab fa-node-js"></i> Login</h3>
+<div class="section">
+  <%- include('./partials/messages') %>
+</div>
+<div class="section">
+  <form action="/users/login" method="POST" autocomplete="off">
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Type your email..." class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Type your password..." class="validate">
+      </div>
+    </div>
+    <div class="section">
+      <button class="btn red darken-2" type="submit">Login</button>
+    </div>
+  </form>
+  <p>Don't have an account?<a href="/users/register"> Register</a></p>
+</div>

@@ -1,0 +1,36 @@
+<h6>Dashboard</h6>
+<h3>Welcome <%= name %></h3>
+<p>Here are your posts</p>
+<% if (posts.length > 0) { %>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% posts.forEach(post => { %>
+        <tr>
+          <td><a href="/posts/<%= post._id %>"><%= post.title %></a></td>
+          <td><%= formatDate(post.createdAt, 'MMMM Do YYYY, hh:mm:ss a') %></td>
+          <td><%= post.status %></td>
+          <td>
+            <a href="/posts/edit/<%= post._id %>" class="btn btn-float"><i class="fas fa-edit"></i></a>
+            <form action="/posts/<%= post._id %>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn red"><i class="fas fa-trash"></i></button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+
+<p>You don't have any posts</p>
+
+<% } %>
+

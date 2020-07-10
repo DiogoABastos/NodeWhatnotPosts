@@ -1,0 +1,18 @@
+p {
+  margin: 10px 0 !important;
+}
+
+.login-container {
+  width: 500px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.fa-small {
+  font-size: 16px !important;
+}
+
+.btn-float {
+  float: left;
+  margin-right: 10px;
+}

@@ -1,0 +1,29 @@
+<h3><%= showName(name, posts[0]) %> Public Posts</h3>
+<div class="row">
+  <% if (posts.length > 0) { %>
+    <% posts.forEach(post => { %>
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <%- editIcon(post.user, user, post._id) %>
+            </div>
+            <div class="card-content center-align">
+              <h5><%= post.title %></h5>
+              <p><%- truncate(post.body, 150) %></p>
+              <br>
+              <div class="chip">
+                <a href="/posts/user/<%= post.user._id %>"><%= post.user.firstName %> <%= post.user.lastName %></a>
+              </div>
+            </div>
+            <div class="card-action center-align">
+              <a href="/posts/<%= post._id %>" class="btn grey">Read More</a>
+            </div>
+          </div>
+        </div>
+    <% }) %>
+  <% } else { %>
+
+    <p>There are no public posts</p>
+
+  <% } %>
+</div>

@@ -1,0 +1,31 @@
+<h3>Edit Post</h3>
+<div class="section">
+  <form action="/posts/<%= post._id %>" method="POST" autocomplete="off">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="row">
+      <div class="input-field">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="<%= post.title %>">
+      </div>
+    </div>
+      <div class="row">
+        <div class="input-field">
+          <select name="status" id="status">
+            <option value="public" <%= post.status == 'public' ? 'selected' : '' %>>Public</option>
+            <option value="private" <%= post.status == 'private' ? 'selected' : '' %>>Private</option>
+          </select>
+          <label for="status">Status</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <h5>Make a post</h5>
+          <textarea name="body" id="body"><%= post.body %></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <input type="submit" value="Save" class="btn">
+        <a href="/dashboard" class="btn orange">Cancel</a>
+      </div>
+  </form>
+</div>
